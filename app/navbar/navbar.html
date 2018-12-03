@@ -1,16 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <a class="navbar-brand" href="#">House-Committee</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home
-                <span class="sr-only">(current)</span>
-            </a>
-            <a class="nav-item nav-link" href="#">Sign in</a>
-            <a class="nav-item nav-link" href="#">Sign out</a>
 
-        </div>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li class="nav-item" ng-show="isUserLoggedIn()">
+                <a class="nav-link" href="#">Messages</a>
+            </li>
+            <li class="nav-item" ng-show="isUserLoggedIn()">
+                <a class="nav-link" href="#">New Message</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" ng-hide="isUserLoggedIn()">
+                <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item" ng-hide="isUserLoggedIn()">
+                <a class="nav-link" href="#">Sign Up</a>
+            </li>
+            <li class="nav-item" ng-show="isUserLoggedIn()">
+                <a class="nav-link" href="#">Logout</a>
+            </li>
+        </ul>
     </div>
 </nav>

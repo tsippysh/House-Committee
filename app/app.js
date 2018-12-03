@@ -12,7 +12,10 @@ app.config(function($routeProvider) {
         controller: "newMessageCtrl"
   }) 
   .when("/login", {
-         }).when("/signup", {
+    templateUrl: "app/login/login.html",
+    controller: "loginCtrl"
+         })
+         .when("/signup", {
         })
   .otherwise({
     templateUrl:"404.html"
