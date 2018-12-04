@@ -34,11 +34,14 @@ function isLoggedIn() {
 function logout() {
     activeUser = null;
 }
-
+function getActiveUser() {
+    return activeUser;
+}
 return {
     login: login,
     isLoggedIn: isLoggedIn,
-    logout: logout
+    logout: logout,
+    getActiveUser: getActiveUser
 }
 })
 
