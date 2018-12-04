@@ -8,7 +8,7 @@ app.controller("loginCtrl", function ($scope, $location, user) {
             user.login($scope.email, $scope.pwd).then(function () {
                 // success login
                 $location.path("/allmessages")
-            }, function () {
+            }, function (error) {
                 // failed login
                 $scope.invalidLogin = true;
 
