@@ -1,15 +1,19 @@
-app.controller("loginCtrl", function($scope, $location) {
-    
+app.controller("loginCtrl", function ($scope, $location, user) {
+
     $scope.invalidLogin = false;
-     $scope.login = function() {
+    $scope.login = function () {
         $scope.invalidLogin = false;
-        
-        if ($scope.email === "a" && $scope.pwd === "1") {
-            // success login
-            $location.path("/Messages")
-        } else {
-            // failed login
-            $scope.invalidLogin = true;
-        };
+
+        if ($scope.email === "d@gmail.com" && $scope.pwd === "1") {
+            user.login($scope.email, $scope.pwd).then(function () {
+                // success login
+                $location.path("/allmessages")
+            }, function () {
+                // failed login
+                $scope.invalidLogin = true;
+
+            })
+        }
     }
 });
+

@@ -1,0 +1,53 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "fname": "Daniela",
+            "lname": "Tsadik",
+            "email": "d@gmail.com",
+            "pwd": "1"
+        },
+        {
+            "id": 2,
+            "fname": "Ora",
+            "lname": "DoeAvisar",
+            "email": "b",
+            "pwd": "2"
+        }
+    ],
+    "messages": [
+        {
+            "id": 1,
+            "name": "נזילה",
+            "description": "נזילת מים מעל המקלט",
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "name": "Shakshuka",
+            "description": "Amazing egg dish with tomatto souce",
+            "ingredients": "Egg, Tomatto, Onion",
+            "steps": "Pout eggs and then tomatto",
+            "imgUrl": "https://www.serenaonline.co.za/wp-content/uploads/2017/12/Shakshouka-Poached-Eggs-in-a-Spicy-Tomato-Sauce-Smaller-File.jpg",
+            "userId": 1
+        },
+        {
+            "id": 3,
+            "name": "Shakshuka",
+            "description": "Amazing egg dish with tomatto souce",
+            "ingredients": "Egg, Tomatto, Onion",
+            "steps": "Pout eggs and then tomatto",
+            "imgUrl": "https://cdn.katalogsmakow.pl/2015/10/06/0x600/najlepsze-sniadanie-szakszuka-shakshouka-jajka-w-pomidorach.359892.jpg",
+            "userId": 2
+        },
+        {
+            "id": 4,
+            "name": "Shakshuka",
+            "description": "Amazing egg dish with tomatto souce",
+            "ingredients": "Egg, Tomatto, Onion",
+            "steps": "Pout eggs and then tomatto",
+            "imgUrl": "http://www.spicechronicles.com/wp-content/uploads/2015/09/Shakshouka_1_650.jpg",
+            "userId": 2
+        }        
+    ]
+}

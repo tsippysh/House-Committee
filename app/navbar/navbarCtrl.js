@@ -1,9 +1,10 @@
 
-app.controller("navbarCtrl", function($scope) {
-    $scope.test = "blabla";
+app.controller("navbarCtrl", function($scope,user) {
+   
     
     $scope.isUserLoggedIn = function() {
-        return false;}
+        return user.isLoggedIn();
+    }
     })
 
     
