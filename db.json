@@ -4,15 +4,15 @@
             "id": 1,
             "fname": "Daniela",
             "lname": "Tsadik",
-            "email": "d@gmail.com",
+            "email": "d@mail.com",
             "pwd": "123"
         },
         {
             "id": 2,
             "fname": "Ora",
-            "lname": "DoeAvisar",
-            "email": "b",
-            "pwd": "2"
+            "lname": "Avisar",
+            "email": "ora@mail.com",
+            "pwd": "234"
         }
     ],
     "messages": [

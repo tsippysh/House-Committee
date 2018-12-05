@@ -9,7 +9,7 @@ app.factory("messages", function($q, $http, user) {
      function getActiveUserMessages() {
         var async = $q.defer();
          Messages = [];
-        
+        alert(1);
         var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/message?userId=" +
             user.getActiveUser().id;
         
