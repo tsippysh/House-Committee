@@ -9,22 +9,26 @@ app.factory("messages", function($q, $http, user) {
      function getActiveUserMessages() {
         var async = $q.defer();
          messages = [];
-        //  debugger;
-        var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages?id=" +
-            user.getActiveUser().id;
+         var substring = "";
+         // case of vaad:
+        
+                if (user.getActiveUser().email==="vaad@mail.com") {
+                    substring="";
+                }
+                else {
+                    substring+="?id=" + user.getActiveUser().id;
+                }
+        
+        var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages"+substring ;
 
         
         $http.get(getMessageURL).then(function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 
-                // case of vaad
-                // if ($scope.email==="vaad@mail.com")
+                
                 var message = new Message(response.data[i]);
-                   
                 
                 
-                
-                alert("messages:  vaad");
                 messages.push(message);
             }            
             async.resolve(messages);
