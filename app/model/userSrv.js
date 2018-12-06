@@ -16,7 +16,7 @@ app.factory("user", function($q, $http) {
         if (response.data.length > 0) {
             // success login
             activeUser = new User(response.data[0]);
-            alert("user:  daniela");
+            
             async.resolve(activeUser);
         } else {
             // invalid email or password
