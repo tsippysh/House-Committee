@@ -13,7 +13,42 @@
             "lname": "Avisar",
             "email": "ora@mail.com",
             "pwd": "234"
+        },
+        {
+            "id": 3,
+            "fname": "Ayala",
+            "lname": "Klain",
+            "email": "ayala@mail.com",
+            "pwd": "345"
+        },
+        {
+            "id": 4,
+            "fname": "Yuda",
+            "lname": "Keler",
+            "email": "yuda@mail.com",
+            "pwd": "456"
+        },
+        {
+            "id": 5,
+            "fname": "Dan",
+            "lname": "Meliniak",
+            "email": "dan@mail.com",
+            "pwd": "567"
+        },
+        {
+            "id": 6,
+            "fname": "Tsippy",
+            "lname": "Shpigel",
+            "email": "tsippy@mail.com",
+            "pwd": "678"
+        }, {
+            "id": 10,
+            "fname": "Vaad",
+            "lname": "",
+            "email": "vaad@mail.com",
+            "pwd": "100"
         }
+              
     ],
     "messages": [
         {
@@ -27,6 +62,30 @@
             "name": "גינה",
             "description": "צריך לקנות צמחים חדשים לגינה",
             "userId": 2
+        },
+        {
+            "id": 1,
+            "name": "ממד",
+            "description": "תוספת ממד בכיוון הצפוני",
+            "userId": 1
+        },
+        {
+            "id": 10,
+            "name": "גג",
+            "description": "זיפות הגג לפני הגשם",
+            "userId": 10
+        },
+        {
+            "id": 3,
+            "name": " נזילה חדשה",
+            "description": "נזילת מים מעל המחסנים",
+            "userId": 3
+        },
+        {
+            "id": 10,
+            "name": "סלילת גישה",
+            "description": "סלילת שביל הגישה של הבית האחורי",
+            "userId": 10
         }
     ]
 }
