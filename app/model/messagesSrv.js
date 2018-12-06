@@ -1,6 +1,6 @@
 app.factory("messages", function($q, $http, user) {
      var messages = [];
-     function message(plainMessage) {
+     function Message(plainMessage) {
         this.id = plainMessage.id;
         this.name = plainMessage.name;
         this.description = plainMessage.description;
@@ -8,14 +8,20 @@ app.factory("messages", function($q, $http, user) {
     }
      function getActiveUserMessages() {
         var async = $q.defer();
-         Messages = [];
-        alert(1);
-        var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/message?userId=" +
+         messages = [];
+         debugger;
+        var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages?id=" +
             user.getActiveUser().id;
+
         
         $http.get(getMessageURL).then(function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 var message = new Message(response.data[i]);
+                   
+                
+                
+                
+                alert("messages:  daniela");
                 messages.push(message);
             }            
             async.resolve(messages);

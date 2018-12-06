@@ -9,12 +9,14 @@ app.factory("user", function($q, $http) {
     }
      function login(email, pwd) {
         var async = $q.defer();
+        
         var loginURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/users?email=" +
         email + "&pwd=" + pwd;
     $http.get(loginURL).then(function(response) {
         if (response.data.length > 0) {
             // success login
             activeUser = new User(response.data[0]);
+            alert("user:  daniela");
             async.resolve(activeUser);
         } else {
             // invalid email or password
@@ -35,6 +37,7 @@ function logout() {
     activeUser = null;
 }
 function getActiveUser() {
+    debugger;
     return activeUser;
 }
 return {
