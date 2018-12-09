@@ -10,7 +10,7 @@ app.config(function ($routeProvider) {
     templateUrl: "app/messages/allmessages.html",
     controller: "messagesCtrl"
   }).when("/newMessage", {
-    templateUrl: "newMessage.html",
+    templateUrl: "app/messages/newMessage.html",
     controller: "newMessageCtrl"
   }).when("/signup", {
     })

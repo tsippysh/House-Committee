@@ -1,6 +1,4 @@
-
 <navbar-house></navbar-house>
-<!-- alert(user.getActiveUser().fname) -->
 
 <div class="container">
 <h1>All Messages</h1>
@@ -11,6 +9,8 @@
             <div class="card">
                 <!-- <img class="card-img-top" ng-src="{{message.imgUrl}}" alt=""> -->
                 <div class="card-body">
+                    {{messages.length}}
+                    <h3 class="card-title">{{myname}}</h3>
                     <h4 class="card-title">{{message.name}}</h4>
                     <p class="card-text">{{message.description}}</p>
                 </div>
