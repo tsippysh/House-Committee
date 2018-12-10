@@ -30,6 +30,19 @@ app.factory("user", function ($q, $http) {
         return async.promise;
     }
 
+    function getUsers() {
+        var async = $q.defer();
+        debugger;
+        var loginURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/users";
+        $http.get(loginURL).then(function (users) {
+            async.resolve(users);
+        }, function (error) {
+            async.reject(error);
+        });
+
+        return async.promise;
+    }
+
     function isLoggedIn() {
         return activeUser ? true : false;
     }
@@ -44,7 +57,8 @@ app.factory("user", function ($q, $http) {
         login: login,
         isLoggedIn: isLoggedIn,
         logout: logout,
-        getActiveUser: getActiveUser
+        getActiveUser: getActiveUser,
+        getUsers:getUsers
     }
 })
 

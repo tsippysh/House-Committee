@@ -1,32 +1,81 @@
 app.factory("messages", function ($q, $http, user) {
     var messages = [];
-    
-    function Message(plainMessage) {
+    var wasEverLoaded = false;
+
+    function Message(plainMessage,fname,lname) {
         this.id = plainMessage.id;
         this.name = plainMessage.name;
         this.description = plainMessage.description;
         this.userId = plainMessage.userId;
+        this.fname = fname;
+        this.lname = lname;
     }
 
-    function getActiveUserMessages() {
+    function getActiveUserMessages(isMessage) {
         var async = $q.defer();
         messages = [];
         var substring = "";
+        var usersIds =[];
+        var users=[];
         // case of vaad:
         if (user.getActiveUser().email === "vaad@mail.com") {
             substring = "";
+           
         }
         else {
+            if(isMessage){
             substring += "?id=" + user.getActiveUser().id;
+            }
         }
+    
+
         var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages" + substring;
 
         $http.get(getMessageURL).then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                var message = new Message(response.data[i]);
-                messages.push(message);
-            }
-            async.resolve(messages);
+            var flag = (user.getActiveUser().email === "vaad@mail.com");
+            user.getUsers().then(function(response2){
+                 users =response2.data;
+                 usersIds = response2.data.map(row => row.id);
+                 for (var i = 0; i < response.data.length; i++) {
+                    if (flag) {
+                        var index = usersIds.indexOf(response.data[i].userId);
+                        if(index!=-1) {
+                            debugger;
+                            var message = new Message(response.data[i],users[index].fname,users[index].lname);
+                            messages.push(message);
+                        } else {
+                            var message = new Message(response.data[i]);
+                            messages.push(message);
+                        }
+                    } else {
+                        var message = new Message(response.data[i]);
+                        messages.push(message);
+                    }
+                   
+                    
+                }
+                async.resolve(messages);
+            })
+            
+            // for (var i = 0; i < response.data.length; i++) {
+            //     debugger;
+            //     if (flag) {
+            //         var index = usersIds.indexOf(response.data[i].userId);
+            //         if(index!=-1) {
+            //             var message = new Message(response.data[i],users[index].fname);
+            //             messages.push(message);
+            //         } else {
+            //             var message = new Message(response.data[i]);
+            //             messages.push(message);
+            //         }
+            //     } else {
+            //         var message = new Message(response.data[i]);
+            //         messages.push(message);
+            //     }
+               
+                
+            // }
+            // async.resolve(messages);
         }, function (error) {
             async.reject(error);
         })

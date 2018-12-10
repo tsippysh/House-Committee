@@ -12,6 +12,9 @@ app.config(function ($routeProvider) {
   }).when("/newMessage", {
     templateUrl: "app/messages/newMessage.html",
     controller: "newMessageCtrl"
+  }).when("/vote", {
+    templateUrl: "app/vote/vote.html",
+    controller: "voteCtrl"
   }).when("/signup", {
     })
   

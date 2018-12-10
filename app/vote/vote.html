@@ -1,0 +1,31 @@
+<navbar-house></navbar-house>
+
+<div class="container">
+    <h1>Vote</h1>
+    <!-- {{"name: "}}{{fname}} -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 my-2" ng-repeat="message in messages">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- {{messages.length}} -->
+                        <h3 class="card-title">{{myname}}</h3>
+                        <h4 class="card-title">{{message.name}}</h4>
+                        <p class="card-text">{{message.description}}</p>
+
+                        <!-- radio button -->
+                        <form>
+                            <input class="rButton" type="radio" name="vote" value="agree"> Agree<br>
+                            <input class="rButton" type="radio" name="vote" value="against"> Against<br>
+                            <br>
+                            <button type="submit" class="btn btn-primary">Send Your Vote</button>
+                          </form>
+                          
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
