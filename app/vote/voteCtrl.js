@@ -33,5 +33,5 @@ app.controller("voteCtrl", function ($scope, user, $location, messages) {
         user.logout();
         $location.path("/");
     }
-
+// alert("agree: "+agree);
 })
