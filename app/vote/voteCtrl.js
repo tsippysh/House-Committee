@@ -9,8 +9,9 @@ app.controller("voteCtrl", function ($scope, user, $location, messages) {
     }
     $scope.getAllMessagesForVote =function(){
         messages.getActiveUserMessages(false).then(function(messages){
-            debugger;
+            
             $scope.messages = messages;
+            {{alert("from voteCtrl: "+messages)}}
         }, function (error) {
 
         })

@@ -113,6 +113,7 @@ app.factory("messages", function ($q, $http, user) {
         // alert("befor:"+messages.length);
         messages.push(newMessage);
         alert(messages.length);
+        alert("type: "+typeof(messages));
         async.resolve(newMessage);
         return async.promise;
     }

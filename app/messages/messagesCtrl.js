@@ -18,8 +18,7 @@ app.controller("messagesCtrl", function ($scope, messages,user, $location) {
   
 }) 
 
-
-      
+    
         
 
 // נקודה למחשבה

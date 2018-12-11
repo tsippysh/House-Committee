@@ -57,25 +57,7 @@ app.factory("messages", function ($q, $http, user) {
                 async.resolve(messages);
             })
             
-            // for (var i = 0; i < response.data.length; i++) {
-            //     debugger;
-            //     if (flag) {
-            //         var index = usersIds.indexOf(response.data[i].userId);
-            //         if(index!=-1) {
-            //             var message = new Message(response.data[i],users[index].fname);
-            //             messages.push(message);
-            //         } else {
-            //             var message = new Message(response.data[i]);
-            //             messages.push(message);
-            //         }
-            //     } else {
-            //         var message = new Message(response.data[i]);
-            //         messages.push(message);
-            //     }
-               
-                
-            // }
-            // async.resolve(messages);
+           
         }, function (error) {
             async.reject(error);
         })
