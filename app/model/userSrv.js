@@ -32,7 +32,7 @@ app.factory("user", function ($q, $http) {
 
     function getUsers() {
         var async = $q.defer();
-        debugger;
+        // debugger;
         var loginURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/users";
         $http.get(loginURL).then(function (users) {
             async.resolve(users);
@@ -61,32 +61,4 @@ app.factory("user", function ($q, $http) {
         getUsers:getUsers
     }
 })
-
-
-
-
-
-
-//          if (email === "d@gmail.com" && pwd === "1") {
-//             // success login
-//             activeUser = new User({id: "1", fname:"Daniela", lname: "Tsadik", 
-//             email: "d@gmail.com", pwd: "1"});
-//              async.resolve(activeUser);
-//         } else {
-//             async.reject();
-//         }
-//          return async.promise;
-//     }
-//      function isLoggedIn() {
-//         return activeUser ? true : false;
-//     }
-//     function logout() {
-//         activeUser = null;
-//     }
-
-//      return {
-//         login: login,
-//         isLoggedIn: isLoggedIn
-//     }
-// })
 

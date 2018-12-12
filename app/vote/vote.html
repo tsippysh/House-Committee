@@ -16,11 +16,14 @@
 
                         <!-- radio button -->
                         <form>
-                            <input class="rButton" type="radio" name="vote" value="agree"> Agree<br>
-                            <input class="rButton" type="radio" name="vote" value="against"> Against<br>
+                            <input class="rButton" type="radio" name="vote" value="1" ng-model="isWith"> Agree<br>
+                            <input class="rButton" type="radio" name="vote" value="0"ng-model="isWith"> Against<br>
                             <br>
-                            <button type="submit" class="btn btn-primary">Send Your Vote</button>
+                            {{"messages.id="+message.id}}
+                            <button class="btn btn-primary" type="submit" ng-click="showChart()">Send Your Vote</button>
                           </form>
+
+                       
                           
 
 

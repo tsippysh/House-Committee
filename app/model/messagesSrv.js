@@ -13,21 +13,28 @@ app.factory("messages", function ($q, $http, user) {
 
     function getActiveUserMessages(isMessage) {
         var async = $q.defer();
-        messages = [];
+
+
+        // messages = [];
         var substring = "";
         var usersIds =[];
         var users=[];
         // case of vaad:
         if (user.getActiveUser().email === "vaad@mail.com") {
             substring = "";
-           
         }
         else {
             if(isMessage){
             substring += "?id=" + user.getActiveUser().id;
             }
         }
-    
+
+
+
+
+
+
+
 
         var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages" + substring;
 
@@ -40,7 +47,7 @@ app.factory("messages", function ($q, $http, user) {
                     if (flag) {
                         var index = usersIds.indexOf(response.data[i].userId);
                         if(index!=-1) {
-                            debugger;
+                            // debugger;
                             var message = new Message(response.data[i],users[index].fname,users[index].lname);
                             messages.push(message);
                         } else {
@@ -72,9 +79,8 @@ app.factory("messages", function ($q, $http, user) {
         });
         // if working with real server:
         //$http.post("http://my-json-server.typicode.com/nirch/recipe-book-v3/recipes", newRecipe).then.....
-        // alert("befor:"+messages.length);
+       
         messages.push(newMessage);
-        alert(messages.length);
         async.resolve(newMessage);
         return async.promise;
     }
