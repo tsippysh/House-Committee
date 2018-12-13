@@ -1,8 +1,5 @@
 app.controller("messagesCtrl", function ($scope, messages,user, $location) {
-    // user.getActiveUser().fname;  
-      
-    // alert(2+$scope.fname);
-    // alert("user"+user.getActiveUser().fname);
+   
     if (!user.isLoggedIn()) {
         $location.path("/");
         return;

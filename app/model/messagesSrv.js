@@ -1,5 +1,6 @@
 app.factory("messages", function ($q, $http, user) {
     var messages = [];
+    var filteredMessages = [];
     var wasEverLoaded = false;
 
     function Message(plainMessage,fname,lname) {
@@ -14,29 +15,16 @@ app.factory("messages", function ($q, $http, user) {
     function getActiveUserMessages(isMessage) {
         var async = $q.defer();
 
-
+        debugger;
         // messages = [];
         var substring = "";
         var usersIds =[];
         var users=[];
-        // case of vaad:
-        if (user.getActiveUser().email === "vaad@mail.com") {
-            substring = "";
-        }
-        else {
-            if(isMessage){
-            substring += "?id=" + user.getActiveUser().id;
-            }
-        }
-
-
-
-
-
-
-
-
-        var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages" + substring;
+        var id;
+         if(!wasEverLoaded) 
+            {
+                messages= [];
+        var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages" ;
 
         $http.get(getMessageURL).then(function (response) {
             var flag = (user.getActiveUser().email === "vaad@mail.com");
@@ -47,7 +35,6 @@ app.factory("messages", function ($q, $http, user) {
                     if (flag) {
                         var index = usersIds.indexOf(response.data[i].userId);
                         if(index!=-1) {
-                            // debugger;
                             var message = new Message(response.data[i],users[index].fname,users[index].lname);
                             messages.push(message);
                         } else {
@@ -55,12 +42,22 @@ app.factory("messages", function ($q, $http, user) {
                             messages.push(message);
                         }
                     } else {
+        
                         var message = new Message(response.data[i]);
                         messages.push(message);
                     }
                    
                     
                 }
+                   // case of vaad:
+        if (user.getActiveUser().email === "vaad@mail.com") {
+        }
+        else {
+            if(isMessage){
+                filteredMessages= messages.filter(row =>row.userId ===user.getActiveUser().id )
+                async.resolve(filteredMessages);
+            }
+        }
                 async.resolve(messages);
             })
             
@@ -68,9 +65,23 @@ app.factory("messages", function ($q, $http, user) {
         }, function (error) {
             async.reject(error);
         })
+        wasEverLoaded =true;
+    } 
+    else {
+        if(isMessage && user.getActiveUser().email !== "vaad@mail.com"){
+            filteredMessages= messages.filter(row =>row.userId ===user.getActiveUser().id )
+            async.resolve(filteredMessages);
+        }
+        else {
+         async.resolve(messages);
+        }
+    }
         return async.promise;
     }
 
+    function clearWasOverload() {
+        wasEverLoaded =false;
+    }
     function createMessage(name, description) {
         var async = $q.defer();
         var newMessage = new Message({
@@ -87,6 +98,7 @@ app.factory("messages", function ($q, $http, user) {
 
     return {
         getActiveUserMessages: getActiveUserMessages,
-        createMessage: createMessage
+        createMessage: createMessage,
+        clearWasOverload:clearWasOverload 
     }
 }) 

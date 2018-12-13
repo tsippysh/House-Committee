@@ -9,7 +9,7 @@ app.controller("newMessageCtrl", function ($scope, messages, $location, user) {
           alert($scope.name);
             $scope.messages = messages;
             // alert("new messageCtrl: "+ messages);
-            alert("new messageCtrl: "+ messages.length);
+            // alert("new messageCtrl: "+ messages.length);
             $location.path("/allmessages")
         }, function (err) {
             console.log(err);
