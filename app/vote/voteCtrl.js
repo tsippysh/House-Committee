@@ -26,6 +26,6 @@ app.controller("voteCtrl", function ($scope, user, $location, messages) {
         $location.path("/");
     }
     $scope.showChart = function(){
-        $location.path("/graph")   
+        $location.path("/graph/"+messages.id)   
     }
 })

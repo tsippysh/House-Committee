@@ -24,7 +24,7 @@ app.factory("messages", function ($q, $http, user) {
          if(!wasEverLoaded) 
             {
                 messages= [];
-        var getMessageURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/messages" ;
+        var getMessageURL = "https://my-json-server.typicode.com/tsippysh/House-Committee/messages" ;
 
         $http.get(getMessageURL).then(function (response) {
             var flag = (user.getActiveUser().email === "vaad@mail.com");

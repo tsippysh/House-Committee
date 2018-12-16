@@ -11,7 +11,7 @@ app.factory("user", function ($q, $http) {
 
     function login(email, pwd) {
         var async = $q.defer();
-        var loginURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/users?email=" +
+        var loginURL = "https://my-json-server.typicode.com/tsippysh/House-Committee/users?email=" +
             email + "&pwd=" + pwd;
         $http.get(loginURL).then(function (response) {
             if (response.data.length > 0) {
@@ -33,7 +33,7 @@ app.factory("user", function ($q, $http) {
     function getUsers() {
         var async = $q.defer();
         // debugger;
-        var loginURL = "http://my-json-server.typicode.com/tsippysh/House-Committee/users";
+        var loginURL = "https://my-json-server.typicode.com/tsippysh/House-Committee/users";
         $http.get(loginURL).then(function (users) {
             async.resolve(users);
         }, function (error) {
