@@ -18,5 +18,5 @@ input{
     background-image: linear-gradient(purple, yellow);
 }
 canvas{
-    background-color: blue;
+    background-color: rgb(194, 194, 247);
 }

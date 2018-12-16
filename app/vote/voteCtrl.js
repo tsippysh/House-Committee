@@ -23,9 +23,9 @@ app.controller("voteCtrl", function ($scope, user, $location, messages) {
     }
 
     $scope.showChart = function(message){        
-        alert("voteCtrl: " + message.id);
-        
-        $location.path("/graph/"+message.id)   ;
-        // $scope.updateChart();
+        // alert("voteCtrl: " + message.id);
+        messages.giveMessageFromVote(message);
+        $location.path("/graph/" + message.id)   ;
+       return message;
     }
 })

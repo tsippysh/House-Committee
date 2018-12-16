@@ -1,21 +1,10 @@
-// app.controller("graphCtrl", function ($scope, user, $location, $routeparams, messages) {
 app.controller("graphCtrl", function ($scope, user, $location, messages) {
-    debugger;
-    // $scope.id = $routeparams.id;
-    // $scope.msgName = $routeparams.name;
-    // alert("$scope.id:(graph) " + $scope.id);
-    debugger;
-    alert("$scope.msgName" + $scope.msgName);
+    $scope.message = {};
+
     $scope.isWith = 0;
     $scope.notIsWith = 0;
-    alert("graphCtrl");
-    // $scope.updateChart = function () {
-    //     alert("graphCtrl");
 
-    //     return [isWith, notIsWith];
-    // }
     $scope.goHome = function () {
-        alert("goHome");
         $location.path("/allmessages")
     };
 
@@ -26,12 +15,10 @@ app.controller("graphCtrl", function ($scope, user, $location, messages) {
             display: true
         }
     };
-    $scope.labels = ["Agree", "Disagree"];
-    //$scope.data = [];
 
-    $scope.updateChart = function () {
-        //alert("updateChart");
-        debugger;
+    $scope.labels = ["Agree", "Disagree"];
+    
+    $scope.updateChart = function (message) {
         var Agree = 1;
         var Disagree = 2;
         Agree = Agree + $scope.isWith;
@@ -39,4 +26,9 @@ app.controller("graphCtrl", function ($scope, user, $location, messages) {
         return [Agree, Disagree];
     }
 
+    $scope.getMessage = function () {
+        debugger;
+        $scope.message = messages.getMessageFromVote();
+    }
+    $scope.getMessage();
 })

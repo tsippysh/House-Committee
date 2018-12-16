@@ -3,6 +3,18 @@ app.factory("messages", function ($q, $http, user) {
     var filteredMessages = [];
     var wasEverLoaded = false;
 
+    var vote;
+    
+    function giveMessageFromVote(m) {
+         vote = m;   
+    }
+        
+    function getMessageFromVote() {
+        debugger;
+       return vote;   
+   }
+       
+
     function Message(plainMessage,fname,lname) {
         this.id = plainMessage.id;
         this.name = plainMessage.name;
@@ -82,6 +94,7 @@ app.factory("messages", function ($q, $http, user) {
     function clearWasOverload() {
         wasEverLoaded =false;
     }
+   
     function createMessage(name, description) {
         var async = $q.defer();
         var newMessage = new Message({
@@ -99,6 +112,9 @@ app.factory("messages", function ($q, $http, user) {
     return {
         getActiveUserMessages: getActiveUserMessages,
         createMessage: createMessage,
-        clearWasOverload:clearWasOverload 
+        clearWasOverload:clearWasOverload,
+        
+        giveMessageFromVote:giveMessageFromVote,
+        getMessageFromVote:getMessageFromVote,
     }
 }) 
