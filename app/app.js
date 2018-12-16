@@ -17,7 +17,7 @@ app.config(function ($routeProvider) {
     controller: "voteCtrl"
   }).when("/graph/:id", {
     templateUrl: "app/graph/graph.html",
-    controller: "graphCtrl/"
+    controller: "graphCtrl"
   })
   .when("/signup", {
     })

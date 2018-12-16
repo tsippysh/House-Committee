@@ -1,4 +1,11 @@
+// app.controller("graphCtrl", function ($scope, user, $location, $routeparams, messages) {
 app.controller("graphCtrl", function ($scope, user, $location, messages) {
+    debugger;
+    // $scope.id = $routeparams.id;
+    // $scope.msgName = $routeparams.name;
+    // alert("$scope.id:(graph) " + $scope.id);
+    debugger;
+    alert("$scope.msgName" + $scope.msgName);
     $scope.isWith = 0;
     $scope.notIsWith = 0;
     alert("graphCtrl");
@@ -21,56 +28,15 @@ app.controller("graphCtrl", function ($scope, user, $location, messages) {
     };
     $scope.labels = ["Agree", "Disagree"];
     //$scope.data = [];
-    $scope.updateChart = function() {
+
+    $scope.updateChart = function () {
         //alert("updateChart");
         debugger;
         var Agree = 1;
         var Disagree = 2;
-        Agree=Agree+$scope.isWith;
-        Disagree=Disagree+$scope.isWith;
+        Agree = Agree + $scope.isWith;
+        Disagree = Disagree + $scope.isWith;
         return [Agree, Disagree];
-      }
-   
-    
-// window.onload = function () {
-
-// var chart = new CanvasJS.Chart("chartContainer", {
-// 	exportEnabled: true,
-// 	animationEnabled: true,
-// 	title:{
-// 		text: "State Operating Funds"
-// 	},
-// 	legend:{
-// 		cursor: "pointer",
-// 		itemclick: explodePie
-// 	},
-// 	data: [{
-// 		type: "pie",
-// 		showInLegend: true,
-// 		toolTipContent: "{name}: <strong>{y}%</strong>",
-// 		indexLabel: "{name} - {y}%",
-// 		dataPoints: [
-// 			{ y: 26, name: "School Aid", exploded: true },
-// 			{ y: 20, name: "Medical Aid" },
-// 			{ y: 5, name: "Debt/Capital" },
-// 			{ y: 3, name: "Elected Officials" },
-// 			{ y: 7, name: "University" },
-// 			{ y: 17, name: "Executive" },
-// 			{ y: 22, name: "Other Local Assistance"}
-// 		]
-// 	}]
-// });
-// chart.render();
-// }
-
-// function explodePie (e) {
-// 	if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
-// 		e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
-// 	} else {
-// 		e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
-// 	}
-// 	e.chart.render();
-
-// }
+    }
 
 })

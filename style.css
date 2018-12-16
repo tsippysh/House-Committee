@@ -17,3 +17,6 @@ input{
 .jumbotron{
     background-image: linear-gradient(purple, yellow);
 }
+canvas{
+    background-color: blue;
+}
