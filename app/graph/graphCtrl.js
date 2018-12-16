@@ -1,12 +1,14 @@
 app.controller("graphCtrl", function ($scope, user, $location, messages) {
     $scope.isWith = 0;
     $scope.notIsWith = 0;
-    $scope.updateChart = function () {
-        alert("graphCtrl");
+    alert("graphCtrl");
+    // $scope.updateChart = function () {
+    //     alert("graphCtrl");
 
-        return [isWith, notIsWith];
-    }
+    //     return [isWith, notIsWith];
+    // }
     $scope.goHome = function () {
+        alert("goHome");
         $location.path("/allmessages")
     };
 
@@ -20,10 +22,12 @@ app.controller("graphCtrl", function ($scope, user, $location, messages) {
     $scope.labels = ["Agree", "Disagree"];
     //$scope.data = [];
     $scope.updateChart = function() {
-        var Agree = 0;
+        //alert("updateChart");
+        debugger;
+        var Agree = 1;
         var Disagree = 2;
-        Agree=Agree+isWith;
-        Disagree=Disagree+isWith;
+        Agree=Agree+$scope.isWith;
+        Disagree=Disagree+$scope.isWith;
         return [Agree, Disagree];
       }
    
