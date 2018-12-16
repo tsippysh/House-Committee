@@ -8,7 +8,8 @@ app.controller("messagesCtrl", function ($scope, messages,user, $location) {
     messages.getActiveUserMessages(true).then(function (messages) {
         $scope.messages = messages;
         $scope.fname = user.getActiveUser();
-        // $location.path("/newMessages")
+        $scope.myFname= user.getActiveUser().fname;
+        $scope.myLname= user.getActiveUser().lname;
     }, function (error) {
 
     })
@@ -18,6 +19,5 @@ app.controller("messagesCtrl", function ($scope, messages,user, $location) {
     
         
 
-// נקודה למחשבה
-// $scope.myname= user.getActiveUser().fname;
+ 
 

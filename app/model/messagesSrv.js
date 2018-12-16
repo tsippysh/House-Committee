@@ -10,8 +10,7 @@ app.factory("messages", function ($q, $http, user) {
     }
         
     function getMessageFromVote() {
-        debugger;
-       return vote;   
+        return vote;   
    }
        
 
@@ -26,10 +25,8 @@ app.factory("messages", function ($q, $http, user) {
 
     function getActiveUserMessages(isMessage) {
         var async = $q.defer();
-
-        debugger;
-        // messages = [];
-        var substring = "";
+ 
+             var substring = "";
         var usersIds =[];
         var users=[];
         var id;
@@ -54,12 +51,9 @@ app.factory("messages", function ($q, $http, user) {
                             messages.push(message);
                         }
                     } else {
-        
                         var message = new Message(response.data[i]);
                         messages.push(message);
-                    }
-                   
-                    
+                    }  
                 }
                    // case of vaad:
         if (user.getActiveUser().email === "vaad@mail.com") {
@@ -73,7 +67,6 @@ app.factory("messages", function ($q, $http, user) {
                 async.resolve(messages);
             })
             
-           
         }, function (error) {
             async.reject(error);
         })
